@@ -1,0 +1,13 @@
+binary_target,True
+linear_regularization,1e-08
+max_iterations,70
+name,FM
+num_sampled_negative_examples,60
+rank,50
+ranking_optimization,True
+ranking_regularization,0.003
+regularization,3e-10
+seed,42
+sgd_step_size,0.3
+solver,sgd
+verbose,False
