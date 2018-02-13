@@ -8,7 +8,7 @@ If you just want to see all the results, simply open `Pictures_KDD.ipynb` notebo
 In order to run the code in this repository you firstly need to install the following software:  
 1. Python 2.7 (Python 3 is not supported)  
   1.1 `Pandas`, `Numpy`, `Scipy`, `Matplotlib`, `Jupyter` and `Numba` packages.  
-2. `Suitesparse` (which provides CHOLMOD functionality to compute sparse Cholesky decomposition)
+2. [`Suitesparse`](http://faculty.cse.tamu.edu/davis/suitesparse.html) (provides CHOLMOD functionality to compute sparse Cholesky decomposition)
 3. [`Scikit-sparse`](https://github.com/scikit-sparse/scikit-sparse) package which conveniently wraps suitesparse (provided in the repository)
 4. Special version of [`Polara`](https://github.com/evfro/polara) framework, used to conduct all experiments (provided in the repository)
 
