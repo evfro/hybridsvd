@@ -1,0 +1,17 @@
+score,feature,metric
+0.03610821532231958,cast,cosine
+0.021698480716790026,cast,jaccard
+0.03875941664792025,cast,jaccard-weighted
+0.037268253071212634,cast,tfidf-cosine
+0.02219654114793945,director,cosine
+0.022196815485824962,director,jaccard
+0.02203084106508941,director,jaccard-weighted
+0.02401855621457612,director,tfidf-cosine
+0.011097653313727317,genres,cosine
+0.004969767965016433,genres,jaccard
+0.016563698513637336,genres,jaccard-weighted
+0.013583566063306213,genres,tfidf-cosine
+0.011595027900162957,writer,cosine
+0.012423116807584893,writer,jaccard
+0.011263902072348387,writer,jaccard-weighted
+0.012920217056135016,writer,tfidf-cosine
