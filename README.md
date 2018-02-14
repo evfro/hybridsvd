@@ -1,6 +1,6 @@
 # Guide to reproduce experiments
 
-If you just want to see all the results, simply open `Pictures_KDD.ipynb` notebook. You can do it directly on Github. All other notebooks (with code) can also be viewed with Github.
+If you just want to see all the results, simply open `View_all_results.ipynb` notebook. You can do it directly on Github. All other notebooks (with code) can also be viewed with Github.
 
 ## Preparing environment for experimentation
 **NOTE:** Only Linux environment is supported. The code has been tested on Ubuntu 14.04.
