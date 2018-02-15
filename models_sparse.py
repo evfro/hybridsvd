@@ -248,36 +248,16 @@ class HybridSVDColdStart(CholeskyFactorsMixin, SVDModel):
 
     def get_recommendations(self):
         userid = self.data.fields.userid
-        itemid = self.data.fields.itemid
-        
-        if self._sparse_mode:
-            cholesky_factor = cholesky_factor_sparse
-        else:
-            cholesky_factor = cholesky_factor_dense
-           
-        cholesky_items = cholesky_factor(self.item_cholesky_factor)
-        
-        user_factors = self.factors[userid]
-        #repr_users = self.data.representative_users
-        #if repr_users is None:
-        #    repr_users = self.data.index.userid.training
-        #user_factors = user_factors[repr_users.new.values, :]
-        
-        item_factors = self.factors[itemid]
+                
+        user_factors = self.factors[userid]        
         s1 = np.reciprocal(self.factors['singular_values'])
+                
+        cold_similarity_matrix = self.data.cold_items_similarity
         
-        similarity_matrix = self.data.cold_items_similarity
-        cold_factors = similarity_matrix.dot(cholesky_items.dot(item_factors) * s1[None, :])
-        cold_factors /= np.linalg.norm(cold_factors, axis=0)[None, :]
-        user_factors = user_factors / np.linalg.norm(user_factors, axis=0)[None, :]
-        
-        # computes cosine similarity between fake "cold" users and representative users
-        scores = cold_factors.dot(user_factors.T)        
+        user_item_matrix = self.get_training_matrix()
+        user_item_matrix.data = np.ones_like(user_item_matrix.data)
+        similarity_scores = cold_similarity_matrix.dot(user_item_matrix.T).tocsr()
+                
+        scores = similarity_scores.dot(user_factors).dot(user_factors.T)
         top_similar_users = self.get_topk_elements(scores)
-        
-        #top_similar_idx = self.get_topk_elements(scores)
-        #if self.data.representative_users is None:
-        #    top_similar_users = top_similar_idx
-        #else:
-        #    top_similar_users = repr_users.new.values[top_similar_idx.ravel()].reshape(top_similar_idx.shape)
         return top_similar_users
