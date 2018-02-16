@@ -7,11 +7,11 @@ If you just want to see all the results, simply open `View_all_results.ipynb` no
 
 In order to run the code in this repository you firstly need to install the following software:  
 1. Python 2.7 (Python 3 is not supported)  
-  1.1 `Pandas`, `Numpy`, `Scipy`, `Matplotlib`, `Jupyter` and `Numba` packages.  
+  1.1 `Pandas`, `Numpy`, `Scipy`, `Matplotlib`, `Jupyter` and `Numba` packages (see instructions below).  
 2. [`Suitesparse`](http://faculty.cse.tamu.edu/davis/suitesparse.html) (provides CHOLMOD functionality to compute sparse Cholesky decomposition)
 3. [`Scikit-sparse`](https://github.com/scikit-sparse/scikit-sparse) package which conveniently wraps suitesparse (provided in the repository)
 4. Special version of [`Polara`](https://github.com/evfro/polara) framework, used to conduct all experiments (provided in the repository)
-5. [`GraphLab Create`](https://turi.com/download/install-graphlab-create.html)  
+5. [`GraphLab Create`](https://turi.com/download/install-graphlab-create.html) to run Factorization Machines.  
 
 ### Python
 The easiest (and recommended) way to get python and all required packages at once is to use the latest [Anaconda distribution](https://www.continuum.io/downloads).
@@ -45,7 +45,7 @@ pip install --user --upgrade polara_fixed.zip
 ```
 
 ### GraphLab Create
-The software is used to run Factorization Machines. Simply follow the instructions on the download page https://turi.com/download/install-graphlab-create.html. You'll have to request an academic license to get a free version of this product.
+Simply follow the instructions on the download page https://turi.com/download/install-graphlab-create.html. You'll have to request an academic license to get a free version of this product.
 
 ## Running the code
 Use Jupyter Notebooks to play with the code. There are 4 main notebooks, corresponding to 4 experiments: standard and cold-start scenarios for Movielens (ML) and BookCrossing(BX) datasets. The names of the notebooks are self-explaining.
