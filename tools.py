@@ -36,18 +36,27 @@ def get_bx_data(file_path, get_ratings=True, get_users=False, get_books=False):
     return res
 
 
-def get_ml_data(file_path, get_ratings=True, get_genres=True, split_genres=False, meta_path=None, fixes_path=None):
+def get_ml_data(file_path, meta_path, get_ratings=True, get_genres=True, split_genres=False, id_fixes_path=None):
     data, genres = get_movielens_data(file_path, get_ratings=True,
                                       get_genres=True, split_genres=False)
     genres = genres.assign(movienm=lambda x: x.movienm.str.decode('unicode_escape'))
     
-    if fixes_path:
-        id_fix = pd.read_csv(fixes_path)
+    if id_fixes_path:
+        id_fix = pd.read_csv(id_fixes_path)
         genres.movieid.replace(id_fix.set_index('ml1mid').movieid, inplace=True)
-        genres = genres.drop_duplicates(subset='movieid')
+        genres = genres.drop_duplicates(subset='movieid').copy()
         data.movieid.replace(id_fix.set_index('ml1mid').movieid, inplace=True)
-        data = data.drop_duplicates()
+        data = data.drop_duplicates().copy()
         
     meta_info = pd.read_csv(meta_path, sep=';', na_filter=False).set_index('movieid')
     meta_cols = meta_info.columns
     meta_info.loc[:, meta_cols] = meta_info.loc[:, meta_cols].applymap(lambda x: x.split(',') if x else [])
+    
+    res = [df for df in [data, genres, meta_info] if df is not None]
+    return res
+
+
+def sample_ci(df, coef=2.776, level=None): # 95% CI for sample
+    # http://www.stat.yale.edu/Courses/1997-98/101/confint.htm
+    #example from http://onlinestatbook.com/2/estimation/mean.html
+    return coef * df.std(level=level) / np.sqrt(df.shape[0])
