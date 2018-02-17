@@ -6,12 +6,12 @@ If you just want to see all the results, simply open `View_all_results.ipynb` no
 **NOTE:** Only Linux environment is supported. The code has been tested on Ubuntu 14.04.
 
 In order to run the code in this repository you firstly need to install the following software:  
-1. Python 2.7 (Python 3 is not supported)  
+1. Python 2.7 (Python 3 is not supported).  
   1.1 `Pandas`, `Numpy`, `Scipy`, `Matplotlib`, `Jupyter` and `Numba` packages (see instructions below).  
-2. [`Suitesparse`](http://faculty.cse.tamu.edu/davis/suitesparse.html) (provides CHOLMOD functionality to compute sparse Cholesky decomposition)
-3. [`Scikit-sparse`](https://github.com/scikit-sparse/scikit-sparse) package which conveniently wraps suitesparse (provided in the repository)
-4. Special version of [`Polara`](https://github.com/evfro/polara) framework, used to conduct all experiments (provided in the repository)
-5. [`GraphLab Create`](https://turi.com/download/install-graphlab-create.html) to run Factorization Machines.  
+2. [`Suitesparse`](http://faculty.cse.tamu.edu/davis/suitesparse.html) (provides CHOLMOD functionality to compute sparse Cholesky decomposition).
+3. [`Scikit-sparse`](https://github.com/scikit-sparse/scikit-sparse) package which conveniently wraps suitesparse (provided in the repository).
+4. Special version of [`Polara`](https://github.com/evfro/polara) framework, used to conduct all experiments (provided in the repository).
+5. [`GraphLab Create`](https://turi.com/download/install-graphlab-create.html) to run Factorization Machines. This step can be skipped if you only want to test SVD-based models.  
 
 ### Python
 The easiest (and recommended) way to get python and all required packages at once is to use the latest [Anaconda distribution](https://www.continuum.io/downloads).
