@@ -2,6 +2,8 @@
 
 If you just want to see all the results, simply open `View_all_results.ipynb` notebook. You can do it directly on Github. All other notebooks (with code) can also be viewed with Github.
 
+**Update for reviewers:** The results for cold-start experiments are updated. Previously submitted results for the SVD models were based on suboptimal rank choice and were lower than they should be.  
+
 ## Preparing environment for experimentation
 **NOTE:** Only Linux environment is supported. The code has been tested on Ubuntu 14.04.
 
