@@ -1,3 +1,5 @@
+from math import sqrt
+
 import pandas as pd
 
 from StringIO import StringIO
@@ -56,7 +58,14 @@ def get_ml_data(file_path, meta_path, get_ratings=True, get_genres=True, split_g
     return res
 
 
-def sample_ci(df, coef=2.776, level=None): # 95% CI for sample
+def sample_ci(df, coef=2.776, level=None): # 95% CI for sample under Student's t-test
     # http://www.stat.yale.edu/Courses/1997-98/101/confint.htm
-    #example from http://onlinestatbook.com/2/estimation/mean.html
-    return coef * df.std(level=level) / np.sqrt(df.shape[0])
+    # example from http://onlinestatbook.com/2/estimation/mean.html
+    nlevels = df.index.nlevels
+    if (nlevels == 1) & (level is None):
+        n = df.shape[0]
+    elif (nlevels==2) & (level is not None):
+        n = df.index.levshape[1-level]
+    else:
+        raise ValueError
+    return coef * df.std(level=level, ddof=1) / sqrt(n)
