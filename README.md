@@ -2,7 +2,7 @@
 
 If you just want to see all the results, simply open `View_all_results.ipynb` notebook. You can do it directly on Github. All other notebooks (with code) can also be viewed with Github.
 
-**Update for reviewers:** The results for cold-start experiments are updated. Previously submitted results for the SVD models were based on suboptimal rank choice and, therefore, were lower than they should be. Confidence intervals are also included for all results in `View_all_results.ipynb`.  
+**Update for reviewers:** The results for cold-start experiments are updated. Previously submitted results for the SVD models were based on suboptimal rank choice and, therefore, were lower than they should be. Confidence intervals are also included for all results in `View_all_results.ipynb`. The updated version can be found [here](https://arxiv.org/abs/1802.06398).  
 
 ## Preparing environment for experimentation
 **NOTE:** Only Linux environment is supported. The code has been tested on Ubuntu 14.04.
